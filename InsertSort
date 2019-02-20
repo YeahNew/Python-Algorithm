@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@Company：华中科技大学电气学院
+@version: V1.0
+@author: Victor
+@contact: 1650996069@qq.com 2018--2020
+@software: PyCharm
+@file: InsertSort.py
+@time: 2019/2/20 12:12
+@Desc：插入排序：将数组中的元素逐一与已经排好的数据进行比较，前面两个元素先排好。
+                再将第三个元素插入适当位置，这三个元素依然是排好的，依次将第4个。。。如此插入
+"""
+data = [23,56,2,78,23,90,12,45,1]
+
+def showdata(data):
+    for i in range(len(data)):
+        print('%5d' %data[i],end=' ')
+
+def insert(data):
+    for i in range(1,len(data)):
+        tmp = data[i]
+
+        flag = i-1
+        while tmp < data[flag] and flag>=0:
+            data[flag+1] = data[flag]##把比tmp大的元素往后移动。
+            flag -=1
+        data[flag+1] = tmp##最后tmp是最小的那个
+
+
+def main(data):
+    print("原始数据：")
+    showdata(data)
+    print(" ")
+    print("开始排序：")
+    print(" ")
+    insert(data)
+    print("排序后：")
+    showdata(data)
+
+main(data)
